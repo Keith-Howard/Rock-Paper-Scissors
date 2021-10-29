@@ -1,0 +1,146 @@
+html, body {
+    background: url("images/backgroundPhoto.jpg") no-repeat center center fixed;
+    background-size: cover;
+}
+
+#wrapper{
+    margin-left:auto;
+    margin-right:auto;
+    width: 50rem;
+}
+
+#mainTable {
+	border: solid 2px black;
+	background-color: blanchedalmond;
+	border-radius: 5px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#rockPaperScissorTable {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#choiceTable {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#winStatTable {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	font-size: 1em;
+	font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+#newGameResetTable {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+h1 {
+	text-align: center;
+	font-size: 4em;
+	font-family: OCR A Std, monospace;
+    color: royalblue;
+    -webkit-text-stroke: 1px white;
+}
+
+.choiceButton, .resetButton {
+	margin: 1rem;
+	width: 5em;
+	border-radius: 12px;
+	height: 3em;
+	font-size: 1.5em;
+}
+
+.playAgainButton {
+	border-radius: 12px;
+	width: 5em;
+	height: 3em;
+	font-size: 1.5em;
+	display: block;
+}
+
+#resetCountersButton {
+	width: 5em;
+	height: 3em;
+}
+
+label {
+	display: block;
+	text-align: center;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 3em;
+}
+.container {
+	margin: auto;
+	border: solid 5px black;
+	border-radius: 12px;
+	width: 175px;
+	height: 175px;
+	background-color: whitesmoke;
+}
+
+img {
+	width: 175px;
+	height: 175px;
+	border-radius: 12px;
+}
+
+  .blinkMe {
+	animation: blink 1.5s infinite;
+  }
+  
+  @keyframes blink {
+	0% {
+	  opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+  }
+
+#outcomeMessage {
+    position:fixed;
+    left: 50%;
+    top: 26.5%;
+    transform: translate(-50%,-50%);
+	border: solid 2px black;
+	background-color: coral;
+	width: 461px;
+	height: 75px;
+	font-size: 3em;
+	font-family: fantasy;
+	border-radius: 10px;
+	text-align: center;
+}
+
+.winContainer, .winPercentage {
+	margin: auto;
+	border: solid 2px black;
+	text-align: center;
+	font-size: 1.5em;
+	width: 100px;
+	height: 35px;
+	background-color: whitesmoke;
+}
+
+#userChoice {
+	margin-right: 10px;
+	margin-left: 10px;
+}
+
+.outcomeContainer {
+	border: solid 5px black;
+	background-color: whitesmoke;
+	width: 200px;
+	height: 40px;
+}
+
+.outcomeRow {
+	border-radius: 12px;
+}
+

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title> Rock Paper Scissors </title>
+	<link rel="stylesheet" href="styles2.css">
+	<meta name="viewport" content="width=device, initial-scale=1">
+</head>
+<body>
+	<div id="wrapper">
+		<h1>Rock, Paper, Scissors Shoot</h1>
+		<div id="outcomeMessageContainer" class="blinkMe">
+			<!-- <p id="outcomeMessage">You Lost</p> -->
+		</div>
+		<table id="mainTable">
+			<tr>
+				<td>
+					<table id="rockPaperScissorTable">
+						<tr>
+							<td>
+								<button class="choiceButton" id="rock">Rock</button>
+							</td>
+							<td>
+								<button class="choiceButton" id="paper">Paper</button>
+							</td>
+							<td>
+								<button class="choiceButton" id="scissors">Scissors</button>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<table id="choiceTable">
+						<tr>
+							<td>
+								<label>User</label>
+							</td>
+							<td>
+								<label>Computer</label>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<div class="container" id="userChoice"></div>
+							</td>
+							<td>
+								<div class="container" id="computerChoice"></div>
+							</td>
+						</tr>
+					</table>
+				</td>	
+			<tr>
+				<td>
+					<table id="winStatTable">
+						<tr>
+							<td>
+								<p>User<br>Wins</p>
+								<div class="winContainer" id="userWon"></div>
+							</td>
+							<td>
+								<p>Computer<br>Wins</p>
+								<div class="winContainer" id="computerWon"></div>
+							</td>
+							<td>
+								<p><br>Draws </p>
+								<div class="winContainer" id="draws"></div>
+							</td>
+							<td>
+								<p>User Win<br>Percentage</p>
+								<div class="winPercentage" id="userWinPercentage"></div>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<table id="newGameResetTable">
+						<tr>
+							<td>
+								<button class="playAgainButton outcomeRow" id="newGame">Play Again</button>
+							</td>
+							<td>
+								<button class="resetButton" id="resetCountersButton">Reset Stats</button>
+							</td>
+						</tr>
+					</table>
+				</td>	
+			</tr>
+		</table>
+    	<script src="main.js"></script>
+	</div>	
+</body>
+</html>
