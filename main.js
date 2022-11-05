@@ -11,7 +11,6 @@ let computerWCounter = document.getElementById('computerWon');
 let drawCounter = document.getElementById('draws');
 let userWinPercentage = document.getElementById('userWinPercentage')
 let resetCountersButton = document.getElementById('resetCountersButton');
-let userNum = 0;
 let computerNum = 0;
 const scissors = 1;
 const paper = 2;
@@ -38,7 +37,7 @@ function setPhoto(imgSource, elementIdName, htmlElement) {
 	htmlElement.appendChild(img);
 }
 
-function setComputerPhoto() {
+function setComputerNumAndPhoto() {
 	computerNum = Math.floor(Math.random() * 3) + 1;
 	switch (computerNum) {
 		case scissors:
@@ -53,92 +52,43 @@ function setComputerPhoto() {
 	return computerNum
 }
 
-rockButton.addEventListener('click', function() {
-	setPhoto("images/rock.png", "userImg", userChoice);
+function usersChoice(usersChoiceNum, userChoiceString) {
+	setPhoto("images/" + userChoiceString + ".png", "userImg", userChoice);
 	document.getElementById("scissors").disabled = true;
 	document.getElementById("paper").disabled = true;
 	document.getElementById("rock").disabled = true;
-	userNum = rock;
 	var outcome = document.createElement('p');
 	outcome.setAttribute("id", "outcomeMessage");
-	computerNum = setComputerPhoto();
-	switch (computerNum) {
-		case scissors:
-			outcome.innerText = '!YOU WON!';
-			userWinCount++;
-			userWCounter.innerHTML = userWinCount;
-			break
-		case paper:
-			outcome.innerText = '!YOU LOST!';
-			computerWinCount++;
-			computerWCounter.innerHTML = computerWinCount;
-			break
-		default:
-			outcome.innerText = '!Draw, Nobody Wins!';
-			drawCount++;
-			drawCounter.innerHTML = drawCount;
+	computerNum = setComputerNumAndPhoto();
+	if (usersChoiceNum === paper && computerNum === rock || 
+		usersChoiceNum === rock && computerNum === scissors || 
+		usersChoiceNum === scissors && computerNum === paper) {
+		outcome.innerText = '!YOU WON!';
+		userWinCount++;
+		userWCounter.innerHTML = userWinCount;
+	} else if (usersChoiceNum === computerNum) {
+		outcome.innerText = '!Draw, Nobody Wins!';
+		drawCount++;
+		drawCounter.innerHTML = drawCount;
+	} else {
+		outcome.innerText = '!YOU LOST!';
+		computerWinCount++;
+		computerWCounter.innerHTML = computerWinCount;
 	}
 	outcomeMessageContainer.appendChild(outcome);
 	updateWinPercentageCalculation(userWinCount, computerWinCount, drawCount);
-	
+}
+
+rockButton.addEventListener('click', function() {
+	usersChoice(rock, 'rock');
 })
 
 paperButton.addEventListener('click', function() {
-	setPhoto("images/paper.png", "userImg", userChoice);
-	document.getElementById("scissors").disabled = true;
-	document.getElementById("paper").disabled = true;
-	document.getElementById("rock").disabled = true;
-	userNum = paper;
-	var outcome = document.createElement('p');
-	outcome.setAttribute("id", "outcomeMessage");
-	computerNum = setComputerPhoto();
-	switch (computerNum) {
-		case scissors:
-			outcome.innerText = '!YOU LOST!';
-			computerWinCount++;
-			computerWCounter.innerHTML = computerWinCount;
-			break
-		case rock:
-			outcome.innerText = '!YOU WON!';
-			userWinCount++;
-			userWCounter.innerHTML = userWinCount;
-			break
-		default:
-			outcome.innerText = '!Draw, Nobody Wins!';
-			drawCount++;
-			drawCounter.innerHTML = drawCount;
-	}
-	outcomeMessageContainer.appendChild(outcome);
-	updateWinPercentageCalculation(userWinCount, computerWinCount, drawCount);
+	usersChoice(paper, 'paper');
 })
 
 scissorsButton.addEventListener('click', function() {
-	setPhoto("images/scissors.png", "userImg", userChoice);
-	document.getElementById("scissors").disabled = true;
-	document.getElementById("paper").disabled = true;
-	document.getElementById("rock").disabled = true;
-	userNum = scissors;
-	var outcome = document.createElement('p');
-	outcome.setAttribute("id", "outcomeMessage");
-	computerNum = setComputerPhoto();
-	switch (computerNum) {
-		case paper:
-			outcome.innerText = '!YOU WON!';
-			userWinCount++;
-			userWCounter.innerHTML = userWinCount;
-			break
-		case rock:
-			outcome.innerText = '!YOU LOST!';
-			computerWinCount++;
-			computerWCounter.innerHTML = computerWinCount;
-			break
-		default:
-			outcome.innerText = '!Draw, Nobody Wins!';
-			drawCount++;
-			drawCounter.innerHTML = drawCount;
-	}
-	outcomeMessageContainer.appendChild(outcome);
-	updateWinPercentageCalculation(userWinCount, computerWinCount, drawCount);
+	usersChoice(scissors, 'scissors');
 })
 
 newGameButton.addEventListener('click', function() {
